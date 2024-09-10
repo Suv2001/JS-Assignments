@@ -1,4 +1,13 @@
 let val = "";
+
+function replaceChar(str, find, replace) {
+  return str.split(find).join(replace);
+}
+
+function evaluateExpression(expression) {
+  return eval(replaceChar(expression, "%", "*0.01"));
+}
+
 function cal(str) {
   if (str === "1") {
     val += "1";
@@ -36,13 +45,14 @@ function cal(str) {
     val = "";
   } else if (str === "DEL") {
     val = val.substring(0, val.length - 1);
-  }else if (str === "=") {
-    // let temp = replaceChar(val, '%', '/100');
-    val = eval(val);
-  }else if (str === ".") {
-    val += '.';
+  } else if (str === "=") {
+    try {
+      val = evaluateExpression(val).toString();
+    } catch (e) {
+      alert("Invalid expression");
+    }
+  } else if (str === ".") {
+    val += ".";
   }
   document.getElementById('output1').value = val;
- 
 }
-
