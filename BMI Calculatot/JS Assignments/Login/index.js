@@ -24,14 +24,12 @@ function validInput() {
       isValid = false;
     } else if (emailValue === '') {
       document.getElementById('emailHelp').innerText = "Enter a proper email id";
-      document.getElementById('emailHelp2').innerText = "";
       emailInput.classList.add('invalid-input');
       emailInput.focus();
       isValid = false;
     } else if (passwordValue === '') {
       document.getElementById('emailHelp2').innerText = "Enter a proper password";
       passwordInput.classList.add('invalid-input');
-      document.getElementById('emailHelp').innerText = "";
       passwordInput.focus();
       isValid = false;
     } else if (!emailValue.includes('@')) {
